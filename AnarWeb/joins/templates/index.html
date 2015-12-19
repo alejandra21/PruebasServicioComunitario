@@ -1,0 +1,38 @@
+{% load staticfiles %}
+<html>
+<style type="text/css">
+body {
+   /* background: url('{% static "images/index/logo.png" %}') no-repeat center black;*/
+    background: black;
+}
+p {
+    color: white;
+    font-size: 20px;
+}
+a {
+    color: white;
+    text-decoration: none;
+    font-size: 50px;
+}
+
+</style>
+	<body>
+        <div class="row" style="height:10%;text-align:center">
+        <p> Nuestros Primeros 
+            Vestigios de 
+            Comunicaci&oacute;n Hoy
+         </p>
+     </div>
+     <div class="row" style="height:50%;text-align:center">
+            <img src="{% static "images/index/logo.png" %}">
+     </div>
+    <div class="row" style="height:25%;text-align:center">
+        <div class="pull-right">
+             <a href = "{% url index %}">
+             <img src="{% static "images/index/mano.png" %}">
+             Entrar
+            </a>
+     </div>
+     </div>
+	</body>
+</html>
