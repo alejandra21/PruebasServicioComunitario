@@ -3,7 +3,6 @@ from django.conf import settings
 # Uncomment the next two lines to enable the admin:
 from django.contrib import admin
 
-
 admin.autodiscover()
 
 urlpatterns = patterns('',
@@ -27,6 +26,7 @@ urlpatterns = patterns('',
 	url(r'^chaining/', include('smart_selects.urls')),
 		
 	# Incluyendo los cruces
-	url(r'^cruces/', include('joins.urls')),
+	url(r'^cruces/', include('joins.urls', namespace='joins')),
+	
 
 )

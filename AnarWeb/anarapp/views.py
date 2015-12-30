@@ -77,3 +77,10 @@ def productosyserviciosVisitasguiadas(request):
 
 def contacto(request):
 	return render(request, 'contacto.html')
+
+def busqueda(request):
+	return render(request, 'cruces.html')
+
+def cruce(request):
+	return render(request, 'joins/index.html')
+

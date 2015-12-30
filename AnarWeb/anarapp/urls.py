@@ -31,4 +31,7 @@ urlpatterns = patterns('',
     url(r'productosyservicios/asesorias', views.productosyserviciosAsesorias, name='asesorias'),
     url(r'productosyservicios/visitas', views.productosyserviciosVisitasguiadas, name='visitasguiadas'),
     url(r'contacto', views.contacto, name='contacto'),
+    url(r'busqueda', views.busqueda, name='busqueda'),
+    #url(r'cruce', views.cruce, name='cruce'),
+
     )

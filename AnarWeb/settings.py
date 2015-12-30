@@ -22,10 +22,10 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2', # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.
         'NAME': 'anardb',                      # Or path to database file if using sqlite3.
-        'USER': 'anar',                      # Not used with sqlite3.
-        'PASSWORD': 'anarpass',                  # Not used with sqlite3.
-        'HOST': '159.90.9.166',                      # Set to empty string for localhost. Not used with sqlite3.
-        'PORT': '3306',                      # Set to empty string for default. Not used with sqlite3.
+        'USER': 'alejandra',                      # Not used with sqlite3.
+        'PASSWORD': '12345',                  # Not used with sqlite3.
+        'HOST': '127.0.0.1',                      # Set to empty string for localhost. Not used with sqlite3.
+        'PORT': '5432',                      # Set to empty string for default. Not used with sqlite3.
     }
 }
 
