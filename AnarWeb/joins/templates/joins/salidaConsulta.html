@@ -56,10 +56,21 @@ Ruby de Valencia
 
 <h1>RESULTADOS: </h1>
 
-<p>El estado seleccionado fue:</p><br>
-<h1><strong>{{ nombre }}</strong></h1>
+{% for y in yacimiento %}
 
-<p>Y el nombre es:</p>
-<h1><strong>{{ nombre }}</strong></h1>
+    <p>El estado seleccionado fue:</p><br>
+    <h1><strong>{{ y.estado }}</strong></h1>
+
+    <p>Y el nombre es:</p>
+    <h1><strong>{{ y.nombre }}</strong></h1>
+
+    <p>Y el codigo es:</p>
+    <h1><strong>{{ y.codigo }}</strong></h1>
+
+    <p>Tipo de manifestacion:</p>
+    <h1>{{ y.tipos_de_manifestaciones }}</h1>
+
+{% endfor %}
+<p>{{ y.tipos_de_manifestaciones }}</p>
 
 {% endblock %}

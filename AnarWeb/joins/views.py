@@ -1,11 +1,14 @@
 # Create your views here.
 from django.shortcuts import render
-from anarapp.models import Estado, Piedra, Yacimiento
+from django.db.models import Q
+from anarapp.models import Estado, Piedra, Yacimiento, ManifestacionYacimiento
+from joins.forms import CrucesYYForm
 
 
 def index(request):
-	Estados = Estado.objects.all()
-	return render(request, 'joins/inicioCruces.html',{'Estados':Estados})
+	#Estados = Estado.objects.all()
+	forma = CrucesYYForm
+	return render(request, 'joins/inicioCruces.html',{'forma':forma})
 
 def cruces(request,cruce_id):
 	entrada = "joins/cruce"+str(cruce_id)+".html"
@@ -13,10 +16,42 @@ def cruces(request,cruce_id):
 
 def consulta(request):
 	# Se realiza la consula:
-	estadoElegido = request.POST['estado']
-	nombre = request.POST['nombreMonumento']
-	#yacimiento=Yacimiento.objects.filter(estado=estadoElegido)
-	return render(request,'joins/salidaConsulta.html', {'nombre':nombre})
+	estadoElegido = request.GET['estado']
+	nombreElegido = request.GET['nombre']
+	manifestacionElegido = request.GET['manifestacion']
+
+	#yacimiento=Yacimiento.objects.filter(codigo__iexact="327")
+	#yacimiento=Yacimiento.objects.filter(tipos_de_manifestaciones__iexact=manifestacionElegido)
+	
+	#manifestacion = ManifestacionYacimiento.objects.filter(esGeoglifo=True)
+	# manifestacion = ManifestacionYacimiento.objects.filter(esPintura=True)
+
+	# for m in manifestacion:
+	# 	yacimiento=Yacimiento.objects.filter(id= m.yacimiento.id)+yacimiento
+
+
+
+	if(nombreElegido=="" and estadoElegido=="---"):
+		# Se supone que tiene que redireccionar a un .html
+		yacimiento=""
+		#yacimiento=Yacimiento.objects.filter(estado__nombre__exact=estadoElegido)
+
+	elif(nombreElegido!="" and estadoElegido=="---"):
+
+		yacimiento=Yacimiento.objects.filter(nombre__icontains=nombreElegido)
+
+	elif(nombreElegido=="" and estadoElegido!="---"):
+
+		yacimiento=Yacimiento.objects.filter(estado__nombre__exact=estadoElegido)
+
+	elif(nombreElegido!="" and estadoElegido!="---"):
+
+		# Conculta encadenada
+		yacimiento = Yacimiento.objects.filter(nombre__icontains=nombreElegido,
+			estado__nombre__exact=estadoElegido)
+
+	
+	return render(request,'joins/salidaConsulta.html', {'yacimiento':yacimiento})
 	
 
 

@@ -56,24 +56,22 @@ Ruby de Valencia
 
 <p>Buscar rocas en el estado: </p>
 
-<form action="/cruces/consulta/" method="post">
+<form action="/cruces/consulta/" method="get">
 
-{% csrf_token %}
-
-{% for estado in Estados %}
-    <input type="radio" name="estado" value={{ estado.nombre }} />
-    <label>{{ estado.nombre }}</label></br>
-{%endfor%}
-<input type="text" name="nombreMonumento" /> 
-<label>Nombre del monumento</label></br>
-<input type="submit" value="Aceptar" /> 
+    {% csrf_token %}
+    {{ forma }}
+    <input type="submit" value="Aceptar" /> 
 </form>
 
 {% endblock %}
 
-{# <input type="radio" name="estado" value="Apure"/>
-<label>Apure</label></br>
-<input type="radio" name="estado" value="Barinas"/>
-<label>Barinas</label></br>#}
+{# {% for estado in Estados %}
+    <input type="radio" name="estado" value={{ estado }} />
+    <label>{{ estado.nombre }}</label></br>
+{%endfor%}
+<input type="text" name="nombreMonumento" /> 
+<label>Nombre del monumento</label></br> #}
+
+
 
 
