@@ -60,9 +60,9 @@ Ruby de Valencia
 
 {% if yacimiento != "" %}
 
-    <table>
     {% for y in yacimiento %}
-        <tr>
+    <table>
+  
             <div class="left">
                     <center><strong>{{ y.nombre }}</strong></center>
                     <tr>
@@ -91,11 +91,9 @@ Ruby de Valencia
             <div class="right" >
                 <img src="/upload/yacimiento/2014_11/ñañ0.jpg" style="width:100px;height:100px;"/>
             </div>
-            
-        </tr>
 
-    {% endfor %}
     </table>
+    {% endfor %}
 
 {% else %}
 
