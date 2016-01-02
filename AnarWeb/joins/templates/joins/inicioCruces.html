@@ -59,8 +59,42 @@ Ruby de Valencia
 <form action="/cruces/consulta/" method="get">
 
     {% csrf_token %}
-    {{ forma }}
-    <input type="submit" value="Aceptar" /> 
+
+   <!-- <div class="fieldWrapper">
+        <label>Nombre</label>
+        {{ forma.nombre }}
+
+    </div>
+    <div class="fieldWrapper">
+        <label>Estado</label>
+        {{ forma.estado }}
+        
+
+    </div>
+    <div class="fieldWrapper">
+        <label>Manifestacion</label>
+        {{ forma.manifestacion }}
+    </div> -->
+
+    <table>
+        <td>
+            <label>Nombre</label>
+            {{ forma.nombre }}
+        </td>
+
+        <td>
+            <label>Estado</label>
+            {{ forma.estado }}
+        </td>
+
+        <td>
+            <label>Manifestacion</label>
+            {{ forma.manifestacion }}
+        </td>
+
+    </table> 
+    <br>
+    <center><input type="submit" value="Aceptar" /> </center>
 </form>
 
 {% endblock %}

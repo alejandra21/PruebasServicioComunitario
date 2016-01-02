@@ -55,5 +55,5 @@ class CrucesYYForm(forms.Form):
 	#carasurcopetrotipo = forms.CharField(required=False, max_length=50)
 	#material = forms.CharField(required=False, max_length=50)
 	#manifasociadas = forms.CharField(required=False, max_length=50)
-	#nombre.widget=.attrs    =  {'class':'chzn-select','data-placeholder':'Nombre'}
-	estado.widget.attrs 	= {'class':'chzn-select', 'data-placeholder':'Seleccione el estado'}
+	nombre.widget.attrs    =  {'class':'special','placeholder':'Introduzca el nombre'}
+	estado.widget.attrs 	= {'class':'chzn-select', 'placeholder':'Seleccione el estado'}
