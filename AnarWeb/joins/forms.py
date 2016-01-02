@@ -38,10 +38,9 @@ OPCIONES_MANIFESTACIONES = (
 	('---', '---'),
 	('Pinturas Rupestres','Pinturas Rupestres'),
 	('Cerros y Piedras Miticas Naturales','Cerros y Piedras Miticas Naturales'),
-	('Amoladores,Cúpula,Puntos Acoplados','Amoladores,Cúpula,Puntos Acoplados'),
+	('Amoladores,Cupula,Puntos Acoplados','Amoladores,Cúpula,Puntos Acoplados'),
 	('Geoglifo','Geoglifo'),
 	('Micropentoglifos','Micropentoglifos'),
-	('Geoglifo','Geoglifo'),
 	('Monumentos megaliticos','Monumentos megaliticos'),
 	('Petroglifos','Petroglifos'),
 )
@@ -56,5 +55,5 @@ class CrucesYYForm(forms.Form):
 	#carasurcopetrotipo = forms.CharField(required=False, max_length=50)
 	#material = forms.CharField(required=False, max_length=50)
 	#manifasociadas = forms.CharField(required=False, max_length=50)
-	#manifestacion.widget.attrs 	= {'class':'chzn-select'}
+	#nombre.widget=.attrs    =  {'class':'chzn-select','data-placeholder':'Nombre'}
 	estado.widget.attrs 	= {'class':'chzn-select', 'data-placeholder':'Seleccione el estado'}
