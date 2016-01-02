@@ -6,6 +6,8 @@
 Ruby de Valencia
 {% endblock %}
 
+<link type="text/css" rel="stylesheet" href="stylesheet.css"/>
+
 {% block submenu %}
 <ul class="list-inline ">
 	<table><tr>
@@ -58,39 +60,70 @@ Ruby de Valencia
 
 {% if yacimiento != "" %}
 
+    <table>
     {% for y in yacimiento %}
+        <tr>
+            <div class="left">
+                    <center><strong>{{ y.nombre }}</strong></center>
+                    <tr>
+                        <td><p><strong>Codigo :</strong></p></td>
+                        <td>{{ y.codigo }}</td>
+                    </tr>
+                    
+                    <tr>
+                       <td><p><strong>Nombre :</strong></p></td>
+                        <td></td>
+                    </tr>
 
-        <p>El estado seleccionado fue:</p><br>
-        <h1><strong>{{ y.estado }}</strong></h1>
+                    <tr>
+                        <td><p><strong>Estado :</strong></p></td>
+                        <td>{{ y.estado }}</td>
+                    </tr>
 
-        <p>Y el nombre es:</p>
-        <h1><strong>{{ y.nombre }}</strong></h1>
+                    <tr>
+                        <td><p><strong>Manifestacion :</strong></p></td>
+                        <td>{{ y.tipos_de_manifestaciones }}</td>
 
-        <p>Y el codigo es:</p>
-        <h1><strong>{{ y.codigo }}</strong></h1>
+                    </tr><br><br>
 
-        <p>Tipo de manifestacion:</p>
-        <h1>{{ y.tipos_de_manifestaciones }}</h1>
+            </div>
+
+            <div class="right" >
+                <img src="/upload/yacimiento/2014_11/ñañ0.jpg" style="width:100px;height:100px;"/>
+            </div>
+            
+        </tr>
 
     {% endfor %}
+    </table>
 
 {% else %}
 
+    <table>
     {% for m in manifestacion %}
 
-        <p>El estado seleccionado fue:</p><br>
-        <h1><strong>{{ m.yacimiento.estado }}</strong></h1>
+        <tr>
+            <td>
 
-        <p>Y el nombre es:</p>
-        <h1><strong>{{ m.yacimiento.nombre }}</strong></h1>
+                <td><p><strong>Codigo :</strong></p></td>
+                <td>{{ m.yacimiento.codigo }}</td>
+                
+                
+                <p><strong>Nombre :</strong></p>{{ m.yacimiento.nombre }}
 
-        <p>Y el codigo es:</p>
-        <h1><strong>{{ m.yacimiento.codigo }}</strong></h1>
+                <p><strong>Estado :</strong></p>{{ m.yacimiento.estado }}
 
-        <p>Tipo de manifestacion:</p>
-        <h1>{{ m.yacimiento.tipos_de_manifestaciones }}</h1>
+                <p><strong>Tipo de manifestacion :</strong></p>{{ m.yacimiento.tipos_de_manifestaciones }}
+
+            </td>
+
+            <td>
+                <img src="/upload/yacimiento/2014_11/ñañ0.jpg" style="width:50px;height:50px;"/>
+            </td>
+        </tr>
 
     {% endfor %}
+    </table>
 
 {% endif %}
 

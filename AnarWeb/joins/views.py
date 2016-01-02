@@ -1,9 +1,7 @@
 # Create your views here.
 from django.shortcuts import render
 from django.db.models import Q
-from django.db.models import F
-from itertools import chain
-from anarapp.models import Estado, Piedra, Yacimiento, ManifestacionYacimiento
+from anarapp.models import Estado, Piedra, Yacimiento, ManifestacionYacimiento,FotografiaYac
 from joins.forms import CrucesYYForm
 
 
@@ -93,6 +91,10 @@ def consulta(request):
 			manifestacion = \
 			manifestacion.filter(yacimiento__nombre__icontains=nombreElegido,
 				yacimiento__estado__nombre=estadoElegido)
+
+		#Foto = FotografiaYac.objects.filter(yacimiento__id__in = manifestacion.values_list('yacimiento'))
+		#Foto = FotografiaYac.objects.filter(yacimiento__nombre__icontains="elefante")
+		#Foto = FotografiaYac.objects.all()
 
 	else:
 
