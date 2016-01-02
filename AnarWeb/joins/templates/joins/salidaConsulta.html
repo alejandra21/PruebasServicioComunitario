@@ -56,25 +56,24 @@ Ruby de Valencia
 
 {% block content %}
 
-<h1>RESULTADOS: </h1>
+<h1>RESULTADOS: </h1><br>
 
 {% if yacimiento != "" %}
 
     {% for y in yacimiento %}
-    <table>
-  
-            <div class="left">
-                    <center><strong>{{ y.nombre }}</strong></center>
+
+    <div class="media">
+      <div class="media-left media-middle">
+          <img src="/upload/yacimiento/2014_11/ñañ0.jpg" style="width:100px;height:100px;"/>
+      </div>
+      <div class="media-body">
+        <h4 class="media-heading">{{ y.nombre }}</h4>
+            <table>
                     <tr>
                         <td><p><strong>Codigo :</strong></p></td>
                         <td>{{ y.codigo }}</td>
                     </tr>
                     
-                    <tr>
-                       <td><p><strong>Nombre :</strong></p></td>
-                        <td></td>
-                    </tr>
-
                     <tr>
                         <td><p><strong>Estado :</strong></p></td>
                         <td>{{ y.estado }}</td>
@@ -84,44 +83,48 @@ Ruby de Valencia
                         <td><p><strong>Manifestacion :</strong></p></td>
                         <td>{{ y.tipos_de_manifestaciones }}</td>
 
-                    </tr><br><br>
+                    </tr>
+            
+             </table>
+      </div>
+    </div>
 
-            </div>
-
-            <div class="right" >
-                <img src="/upload/yacimiento/2014_11/ñañ0.jpg" style="width:100px;height:100px;"/>
-            </div>
-
-    </table>
     {% endfor %}
 
 {% else %}
 
-    <table>
     {% for m in manifestacion %}
 
-        <tr>
-            <td>
 
-                <td><p><strong>Codigo :</strong></p></td>
-                <td>{{ m.yacimiento.codigo }}</td>
-                
-                
-                <p><strong>Nombre :</strong></p>{{ m.yacimiento.nombre }}
+    <div class="media">
+      <div class="media-left media-middle">
+          <img src="/upload/yacimiento/2014_11/ñañ0.jpg" style="width:100px;height:100px;"/>
+      </div>
+      <div class="media-body">
+        <h4 class="media-heading">{{ m.yacimiento.nombre }}</h4>
+            <table>
+                    <tr>
+                        <td><p><strong>Codigo :</strong></p></td>
+                        <td>{{ m.yacimiento.codigo }}</td>
+                    </tr>
+                    
+                    <tr>
+                        <td><p><strong>Estado :</strong></p></td>
+                        <td>{{ m.yacimiento.estado }}</td>
+                    </tr>
 
-                <p><strong>Estado :</strong></p>{{ m.yacimiento.estado }}
+                    <tr>
+                        <td><p><strong>Manifestacion :</strong></p></td>
+                        <td>{{ m.yacimiento.tipos_de_manifestaciones }}</td>
 
-                <p><strong>Tipo de manifestacion :</strong></p>{{ m.yacimiento.tipos_de_manifestaciones }}
+                    </tr>
+            
+             </table>
+      </div>
+    </div>
 
-            </td>
-
-            <td>
-                <img src="/upload/yacimiento/2014_11/ñañ0.jpg" style="width:50px;height:50px;"/>
-            </td>
-        </tr>
 
     {% endfor %}
-    </table>
 
 {% endif %}
 
