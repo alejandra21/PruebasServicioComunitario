@@ -118,8 +118,12 @@ def consulta(request):
 				estado__nombre__exact=estadoElegido)
 
 	
-	return render(request,'joins/salidaConsulta.html', 
-		{'yacimiento':yacimiento,'manifestacion':manifestacion,'forma':forma})
+	if(yacimiento or manifestacion):
+		return render(request,'joins/salidaConsulta.html', 
+			{'yacimiento':yacimiento,'manifestacion':manifestacion,'forma':forma})
+
+	else:
+		return render(request, 'joins/inicioCruces.html',{'forma':forma})
 	
 
 
