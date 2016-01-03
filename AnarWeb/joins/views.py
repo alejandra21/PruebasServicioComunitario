@@ -37,7 +37,7 @@ def consulta(request):
 
 	#for m in manifestacion:
 	#yacimiento=Yacimiento.objects.filter(id = manifestacion.yacimiento.id)
-
+	forma = CrucesYYForm
 	yacimiento=""
 	manifestacion=""
 	if(manifestacionElegido!="---"):
@@ -100,7 +100,7 @@ def consulta(request):
 
 		if(nombreElegido=="" and estadoElegido=="---"):
 			# Se supone que tiene que redireccionar a un .html
-			pass
+			return render(request, 'joins/inicioCruces.html',{'forma':forma})
 			#yacimiento=Yacimiento.objects.filter(estado__nombre__exact=estadoElegido)
 
 		elif(nombreElegido!="" and estadoElegido=="---"):
@@ -119,7 +119,7 @@ def consulta(request):
 
 	
 	return render(request,'joins/salidaConsulta.html', 
-		{'yacimiento':yacimiento,'manifestacion':manifestacion})
+		{'yacimiento':yacimiento,'manifestacion':manifestacion,'forma':forma})
 	
 
 

@@ -56,38 +56,81 @@ Ruby de Valencia
 
 {% block content %}
 
-<h1>RESULTADOS: </h1><br>
+<p>Busqueda de yacimientos: </p>
+
+<form action="/cruces/consulta/" method="get">
+
+    {% csrf_token %}
+
+    <table>
+        <td>
+            <label>Nombre</label>
+            {{ forma.nombre }}
+        </td>
+
+        <td>
+            <label>Estado</label>
+            {{ forma.estado }}
+        </td>
+
+        <td>
+            <label>Manifestacion</label>
+            {{ forma.manifestacion }}
+        </td>
+
+    </table> 
+
+    <br>
+    <center><input type="submit" value="Aceptar" /> </center>
+</form>
+
+<br>
+
+<h1>Resultados: </h1><br>
 
 {% if yacimiento != "" %}
 
     {% for y in yacimiento %}
 
-    <div class="media">
-      <div class="media-left media-middle">
-          <img src="/upload/yacimiento/2014_11/ñañ0.jpg" style="width:100px;height:100px;"/>
-      </div>
-      <div class="media-body">
-        <h4 class="media-heading">{{ y.nombre }}</h4>
-            <table>
-                    <tr>
-                        <td><p><strong>Codigo :</strong></p></td>
-                        <td>{{ y.codigo }}</td>
-                    </tr>
+
+    <div class="panel panel-default">
+        <div class="panel-body">
+
+            <div class="media">
+              <div class="media-left media-middle">
+                  <img src="/upload/yacimiento/2014_11/ñañ0.jpg" style="width:100px;height:100px;"/>
+              </div>
+              <div class="media-body">
+                <!--<h4 class="media-heading">{{ y.nombre }}</h4> -->
+                    <table>
+                            <tr>
+                                <td><p><strong>Nombre:</strong></p></td>
+                                <td>{{ y.nombre }}</td>
+                            </tr>
+
+                            <tr>
+                                <td><p><strong>Codigo:</strong></p></td>
+                                <td>{{ y.codigo }}</td>
+                            </tr>
+                            
+                            <tr>
+                                <td><p><strong>Estado:</strong></p></td>
+                                <td>{{ y.estado }}</td>
+                            </tr>
+
+                            <tr>
+                                <td><p><strong>Manifestacion:</strong></p></td>
+                                <td>{{ y.tipos_de_manifestaciones }}</td>
+
+                            </tr>
                     
-                    <tr>
-                        <td><p><strong>Estado :</strong></p></td>
-                        <td>{{ y.estado }}</td>
-                    </tr>
+                     </table>
+              </div>
+            </div>
 
-                    <tr>
-                        <td><p><strong>Manifestacion :</strong></p></td>
-                        <td>{{ y.tipos_de_manifestaciones }}</td>
-
-                    </tr>
-            
-             </table>
-      </div>
+        </div>
     </div>
+
 
     {% endfor %}
 

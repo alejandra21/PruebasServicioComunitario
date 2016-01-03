@@ -54,7 +54,7 @@ Ruby de Valencia
 
 {% block content %}
 
-<p>Buscar rocas en el estado: </p>
+<p>Busqueda de yacimientos: </p>
 
 <form action="/cruces/consulta/" method="get">
 
@@ -93,9 +93,22 @@ Ruby de Valencia
         </td>
 
     </table> 
+
     <br>
     <center><input type="submit" value="Aceptar" /> </center>
 </form>
+
+<br>
+
+<div class="panel panel-default">
+  <div class="panel-body">
+    Sin resultados.
+  </div>
+</div>
+
+
+
+
 
 {% endblock %}
 
