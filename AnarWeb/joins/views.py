@@ -18,10 +18,10 @@ def consulta(request):
 	# Se realiza la consula:
 	estadoElegido = request.GET['estado']
 	nombreElegido = request.GET['nombre']
-	manifestacionElegido = request.GET['manifestacion']
+	manifestacionElegida = request.GET['manifestacion']
 
 	#yacimiento=Yacimiento.objects.filter(codigo__iexact="327")
-	#yacimiento=Yacimiento.objects.filter(tipos_de_manifestaciones__iexact=manifestacionElegido)
+	#yacimiento=Yacimiento.objects.filter(tipos_de_manifestaciones__iexact=manifestacionElegida)
 	
 	
 	#yacimiento=""
@@ -40,34 +40,34 @@ def consulta(request):
 	forma = CrucesYYForm
 	yacimiento=""
 	manifestacion=""
-	if(manifestacionElegido!="---"):
+	if(manifestacionElegida!="---"):
 	 	
 	 	# Se seleccionan las manifestaciones correspondientes
-		if(manifestacionElegido=="Pinturas Rupestres"):
+		if(manifestacionElegida=="Pinturas Rupestres"):
 			manifestacion = ManifestacionYacimiento.objects.filter(esPintura=True)
 
-		elif(manifestacionElegido=="Cerros y Piedras Miticas Naturales"):
+		elif(manifestacionElegida=="Cerros y Piedras Miticas Naturales"):
 
 			manifestacion = ManifestacionYacimiento.objects.filter(
 				Q(esPiedraMiticaNatural=True)| Q(esCerroMiticoNatural=True))
 			
-		elif(manifestacionElegido=='Amoladores,Cupula,Puntos Acoplados'):
+		elif(manifestacionElegida=='Amoladores,Cupula,Puntos Acoplados'):
 			manifestacion = ManifestacionYacimiento.objects.filter(
 				Q(esAmolador=True)|Q(esCupulas=True)|Q(esPuntosAcoplados=True) )
 			
-		elif(manifestacionElegido=="Geoglifo"):
+		elif(manifestacionElegida=="Geoglifo"):
 			manifestacion = ManifestacionYacimiento.objects.filter(esGeoglifo=True)
 
-		elif(manifestacionElegido=="Micropentoglifos"):
+		elif(manifestacionElegida=="Micropentoglifos"):
 			# Hay que agregar este atributo en el modelo de datos
 			manifestacion = \
 			ManifestacionYacimiento.objects.filter(esMonumentosMegaliticos=True)
 
-		elif(manifestacionElegido=="Monumentos megaliticos"):
+		elif(manifestacionElegida=="Monumentos megaliticos"):
 			manifestacion = \
 			ManifestacionYacimiento.objects.filter(esMonumentosMegaliticos=True)
 
-		elif(manifestacionElegido=="Petroglifos"):
+		elif(manifestacionElegida=="Petroglifos"):
 			manifestacion = ManifestacionYacimiento.objects.filter(esPetroglifo=True)
 
 		########################################################################	
@@ -118,12 +118,15 @@ def consulta(request):
 				estado__nombre__exact=estadoElegido)
 
 	
-	if(yacimiento or manifestacion):
-		return render(request,'joins/salidaConsulta.html', 
-			{'yacimiento':yacimiento,'manifestacion':manifestacion,'forma':forma})
 
-	else:
-		return render(request, 'joins/inicioCruces.html',{'forma':forma})
+	return render(request,'joins/salidaConsulta.html', 
+		{'yacimiento':yacimiento,
+		'manifestacion':manifestacion,'forma':forma,
+		'estadoElegido':estadoElegido,
+		'manifestacionElegida':manifestacionElegida,
+		'nombreElegido':nombreElegido})
+
+
 	
 
 
