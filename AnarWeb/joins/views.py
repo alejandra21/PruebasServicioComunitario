@@ -2,19 +2,31 @@
 from django.shortcuts import render
 from django.db.models import Q
 from anarapp.models import Estado, Piedra, Yacimiento, ManifestacionYacimiento,FotografiaYac
-from joins.forms import CrucesYYForm
+from joins.forms import CrucesYYForm,YacimientoRoca
 
 
 def index(request):
 	#Estados = Estado.objects.all()
+	forma = YacimientoRoca
+	return render(request, 'joins/inicio.html',{'forma':forma})
+
+def seleccionTipoConsulta(request):
+	#Estados = Estado.objects.all()
 	forma = CrucesYYForm
-	return render(request, 'joins/inicioCruces.html',{'forma':forma})
+	seleccionElegida = request.GET['tipoConsulta']
+
+	if(seleccionElegida=="Yacimiento"):
+
+		return render(request, 'joins/inicioCruces.html',{'forma':forma})
+
+	else:
+		pass
 
 def cruces(request,cruce_id):
 	entrada = "joins/cruce"+str(cruce_id)+".html"
 	return render(request,entrada)
 
-def consulta(request):
+def consultaYacimiento(request):
 	# Se realiza la consula:
 	estadoElegido = request.GET['estado']
 	nombreElegido = request.GET['nombre']

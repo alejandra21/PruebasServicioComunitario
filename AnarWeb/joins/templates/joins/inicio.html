@@ -54,70 +54,23 @@ Ruby de Valencia
 
 {% block content %}
 
-<p>Busqueda de yacimientos: </p>
 
-<form action="/cruces/consultaYacimiento/" method="get">
+<form action="/cruces/seleccionTipoConsulta/" method="get">
 
     {% csrf_token %}
 
-   <!-- <div class="fieldWrapper">
-        <label>Nombre</label>
-        {{ forma.nombre }}
-
-    </div>
-    <div class="fieldWrapper">
-        <label>Estado</label>
-        {{ forma.estado }}
-        
-
-    </div>
-    <div class="fieldWrapper">
-        <label>Manifestacion</label>
-        {{ forma.manifestacion }}
-    </div> -->
-
-    <table>
-        <td>
-            <label>Nombre</label>
-            {{ forma.nombre }}
-        </td>
-
-        <td>
-            <label>Estado</label>
-            {{ forma.estado }}
-        </td>
-
-        <td>
-            <label>Manifestacion</label>
-            {{ forma.manifestacion }}
-        </td>
-
-    </table> 
-
-    <br>
+    <label>Seleccione el tipo de consulta: </label>
+    {{ forma.tipoConsulta }}
+    
     <center><input type="submit" value="Aceptar" /> </center>
 </form>
-
-<br>
-
-<div class="panel panel-default">
-  <div class="panel-body">
-    Sin resultados.
-  </div>
-</div>
-
 
 
 
 
 {% endblock %}
 
-{# {% for estado in Estados %}
-    <input type="radio" name="estado" value={{ estado }} />
-    <label>{{ estado.nombre }}</label></br>
-{%endfor%}
-<input type="text" name="nombreMonumento" /> 
-<label>Nombre del monumento</label></br> #}
+
 
 
 

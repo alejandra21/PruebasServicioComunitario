@@ -45,6 +45,11 @@ OPCIONES_MANIFESTACIONES = (
 	('Petroglifos','Petroglifos'),
 )
 
+OPCIONES_CONSULTA = (
+	('Roca','Roca'),
+	('Yacimiento','Yacimiento'),
+)
+
 class CrucesYYForm(forms.Form):
 	nombre 	= forms.CharField(required=False, max_length=100)
 	#codigo 	= forms.CharField(required=False, max_length=20)
@@ -57,3 +62,6 @@ class CrucesYYForm(forms.Form):
 	#manifasociadas = forms.CharField(required=False, max_length=50)
 	nombre.widget.attrs    =  {'class':'special','placeholder':'Introduzca el nombre'}
 	estado.widget.attrs 	= {'class':'chzn-select', 'placeholder':'Seleccione el estado'}
+
+class YacimientoRoca(forms.Form):
+	tipoConsulta = forms.ChoiceField(widget=forms.RadioSelect,choices=OPCIONES_CONSULTA)
