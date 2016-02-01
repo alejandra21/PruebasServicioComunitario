@@ -141,26 +141,36 @@ Campos de búsqueda escogidos:
                     <!--<h4 class="media-heading">{{ y.nombre }}</h4> -->
                         <table>
                                 <tr>
-                                    <td><p><strong>Nombre:</strong></p></td>
-                                    <td>{{ y.nombre }}</td>
-                                </tr>
-
-                                <tr>
                                     <td><p><strong>Codigo:</strong></p></td>
                                     <td>{{ y.codigo }}</td>
                                 </tr>
                                 
+                                <tr>
+                                    <td><p><strong>Manifestacion:</strong></p></td>
+                                    <td>{{ y.tipos_de_manifestaciones }}</td>
+
+                                </tr>
+
                                 <tr>
                                     <td><p><strong>Estado:</strong></p></td>
                                     <td>{{ y.estado }}</td>
                                 </tr>
 
                                 <tr>
-                                    <td><p><strong>Manifestacion:</strong></p></td>
-                                    <td>{{ y.tipos_de_manifestaciones }}</td>
-
+                                    <td><p><strong>Nombre:</strong></p></td>
+                                    <td>{{ y.nombre }}</td>
                                 </tr>
-                        
+
+                                <tr>
+                                    <td><p><strong>Autor de la fotografía:</strong></p></td>
+                                    <td></td>
+                                </tr>
+
+                                <tr>
+                                    <td><p><strong>Manifestacion asociada:</strong></p></td>
+                                    <td></td>
+                                </tr>
+
                          </table>
                   </div>
                 </div>
@@ -186,13 +196,14 @@ Campos de búsqueda escogidos:
                   <div class="media-body">
                         <table>
                                 <tr>
-                                    <td><p><strong>Nombre :</strong></p></td>
-                                    <td>{{ m.yacimiento.nombre }}</td>
+                                    <td><p><strong>Codigo :</strong></p></td>
+                                    <td>{{ m.yacimiento.codigo }}</td>
                                 </tr>
 
                                 <tr>
-                                    <td><p><strong>Codigo :</strong></p></td>
-                                    <td>{{ m.yacimiento.codigo }}</td>
+                                    <td><p><strong>Manifestacion :</strong></p></td>
+                                    <td>{{ m.yacimiento.tipos_de_manifestaciones }}</td>
+
                                 </tr>
                                 
                                 <tr>
@@ -201,11 +212,20 @@ Campos de búsqueda escogidos:
                                 </tr>
 
                                 <tr>
-                                    <td><p><strong>Manifestacion :</strong></p></td>
-                                    <td>{{ m.yacimiento.tipos_de_manifestaciones }}</td>
-
+                                    <td><p><strong>Nombre :</strong></p></td>
+                                    <td>{{ m.yacimiento.nombre }}</td>
                                 </tr>
-                        
+
+                                <tr>
+                                    <td><p><strong>Autor de la fotografía:</strong></p></td>
+                                    <td></td>
+                                </tr>
+
+                                <tr>
+                                    <td><p><strong>Manifestacion asociada:</strong></p></td>
+                                    <td></td>
+                                </tr>
+
                          </table>
                   </div>
                 </div>
