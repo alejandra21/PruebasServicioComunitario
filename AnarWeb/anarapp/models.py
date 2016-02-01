@@ -1937,14 +1937,14 @@ class Video (models.Model):
     
 class VideoYacimiento (Video) :
 
-    yacimiento = models.ForeignKey(Yacimiento, related_name='VideoYacimiento')
+    yacimiento = models.ForeignKey(Yacimiento, related_name='VideoYacimiento',blank=True, null=True)
     isvidyac = models.BooleanField('31.3. Videos')
-    anioy = models.IntegerField('31.3.0. Año')
-    formatoy = CharField('31.3.1. Formato',)
-    tituloy = CharField('31.3.2. Titulo')
-    autory = CharField('31.3.3. Autor')    
+    anioy = models.IntegerField('31.3.0. Año', blank=True, null=True)
+    formatoy = CharField('31.3.1. Formato',blank=True, null=True)
+    tituloy = CharField('31.3.2. Titulo',blank=True, null=True)
+    autory = CharField('31.3.3. Autor', blank=True, null=True)    
     instituciony = CharField('31.3.4. Institucion',)
-    numReferenciay = models.IntegerField('31.3.5. Nro de referencia')
+    numReferenciay = models.IntegerField('31.3.5. Nro de referencia',blank=True, null=True)
     isFromAnary = models.BooleanField('31.3.6. ¿Es de ANAR?')
     numCopiayac = models.IntegerField('31.3.6.1. Nro de copia', blank=True, null=True)
     archivoy = models.FileField('31.3.7. Video - Archivo', upload_to='video/%Y_%m', null=True, blank=True)
